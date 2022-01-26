@@ -22,10 +22,10 @@ const buttonsList = [
 ];
 
 const Calculator = () => {
-  const [valueA, setValueA] = useState(null);
-  const [valueB, setValueB] = useState(null);
+  const [valueA, setValueA] = useState("");
+  const [valueB, setValueB] = useState("");
   const [action, setAction] = useState(null);
-  const [totalResult, setTotalResult] = useState(0);
+  const [totalResult, setTotalResult] = useState(null);
   const [currentValue, setCurrentValue] = useState(0);
 
   useEffect(() => {
@@ -35,19 +35,20 @@ const Calculator = () => {
   }, [action, valueA, valueB]);
 
   useEffect(() => {
-    if (valueA === null) {
+    if (valueA === "") {
       setCurrentValue(0);
-    }
-
-    if (valueB === null) {
+    } else if (valueB === "") {
       setCurrentValue(valueA);
+    } else {
+      setCurrentValue(valueB);
     }
+  }, [valueA, valueB]);
 
-    if (action !== null) {
+  useEffect(() => {
+    if (totalResult !== null) {
       setCurrentValue(totalResult);
     }
-
-  }, [action, totalResult, valueA, valueB]);
+  }, [totalResult]);
 
   const resultHandler = () => {
     // if (valueA === null || valueB === null || action === null) return;
@@ -56,16 +57,16 @@ const Calculator = () => {
 
     switch (action) {
       case "/":
-        setTotalResult(valueA / valueB);
+        setTotalResult(Number(valueA) / Number(valueB));
         break;
       case "x":
-        setTotalResult(valueA * valueB);
+        setTotalResult(Number(valueA) * Number(valueB));
         break;
       case "+":
-        setTotalResult(valueA + valueB);
+        setTotalResult(Number(valueA) + Number(valueB));
         break;
       case "-":
-        setTotalResult(valueA - valueB);
+        setTotalResult(Number(valueA) - Number(valueB));
         break;
       default:
         return 0;
@@ -74,22 +75,41 @@ const Calculator = () => {
 
   const onButtonClickHandler = (value) => {
     if (value.type === "number") {
-      if (valueA === null || action === null) {
-        setValueA(Number(value.title));
+      if (action === null) {
+        setValueA((prev) => prev.toString() + value.title.toString());
       } else {
-        setValueB(Number(value.title));
+        setValueB((prev) => prev.toString() + value.title.toString());
       }
     } else {
       if (value.title === "=") {
         resultHandler();
       } else if (value.title === "AC") {
-        setValueA(null);
-        setValueB(null);
+        setValueA("");
+        setValueB("");
         setAction(null);
+        setTotalResult(null);
       } else {
         setAction(value.title);
       }
     }
+
+    // if (value.type === "number") {
+    //   if (valueA === null || action === null) {
+    //     setValueA(Number(value.title));
+    //   } else {
+    //     setValueB(Number(value.title));
+    //   }
+    // } else {
+    //   if (value.title === "=") {
+    //     resultHandler();
+    //   } else if (value.title === "AC") {
+    //     setValueA(null);
+    //     setValueB(null);
+    //     setAction(null);
+    //   } else {
+    //     setAction(value.title);
+    //   }
+    // }
   };
 
   return (
