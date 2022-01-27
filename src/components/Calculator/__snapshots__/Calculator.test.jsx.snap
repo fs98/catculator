@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render calculator 1`] = `
+<div>
+  <div
+    class="calculator container mx-auto md:w-1/2"
+  >
+    <h1
+      class="p-8 text-right text-6xl"
+    >
+      0
+    </h1>
+    <div
+      class="grid grid-cols-4 gap-2"
+    >
+      <button
+        class="px-7 py-8 text-4xl text-center hover:cursor-pointer hover:trasform hover:-translate-y-2 active:translate-y-0 bg-gray-300 hover:bg-gray-400"
+      >
+        7
+      </button>
+      <button
+        class="px-7 py-8 text-4xl text-center hover:cursor-pointer hover:trasform hover:-translate-y-2 active:translate-y-0 bg-gray-300 hover:bg-gray-400"
+      >
+        8
+      </button>
+      <button
+        class="px-7 py-8 text-4xl text-center hover:cursor-pointer hover:trasform hover:-translate-y-2 active:translate-y-0 bg-gray-300 hover:bg-gray-400"
+      >
+        9
+      </button>
+      <button
+        class="px-7 py-8 text-4xl text-center hover:cursor-pointer hover:trasform hover:-translate-y-2 active:translate-y-0 bg-orange-500 hover:bg-orange-600"
+      >
+        /
+      </button>
+      <button
+        class="px-7 py-8 text-4xl text-center hover:cursor-pointer hover:trasform hover:-translate-y-2 active:translate-y-0 bg-gray-300 hover:bg-gray-400"
+      >
+        4
+      </button>
+      <button
+        class="px-7 py-8 text-4xl text-center hover:cursor-pointer hover:trasform hover:-translate-y-2 active:translate-y-0 bg-gray-300 hover:bg-gray-400"
+      >
+        5
+      </button>
+      <button
+        class="px-7 py-8 text-4xl text-center hover:cursor-pointer hover:trasform hover:-translate-y-2 active:translate-y-0 bg-gray-300 hover:bg-gray-400"
+      >
+        6
+      </button>
+      <button
+        class="px-7 py-8 text-4xl text-center hover:cursor-pointer hover:trasform hover:-translate-y-2 active:translate-y-0 bg-orange-500 hover:bg-orange-600"
+      >
+        x
+      </button>
+      <button
+        class="px-7 py-8 text-4xl text-center hover:cursor-pointer hover:trasform hover:-translate-y-2 active:translate-y-0 bg-gray-300 hover:bg-gray-400"
+      >
+        1
+      </button>
+      <button
+        class="px-7 py-8 text-4xl text-center hover:cursor-pointer hover:trasform hover:-translate-y-2 active:translate-y-0 bg-gray-300 hover:bg-gray-400"
+      >
+        2
+      </button>
+      <button
+        class="px-7 py-8 text-4xl text-center hover:cursor-pointer hover:trasform hover:-translate-y-2 active:translate-y-0 bg-gray-300 hover:bg-gray-400"
+      >
+        3
+      </button>
+      <button
+        class="px-7 py-8 text-4xl text-center hover:cursor-pointer hover:trasform hover:-translate-y-2 active:translate-y-0 bg-orange-500 hover:bg-orange-600"
+      >
+        -
+      </button>
+      <button
+        class="px-7 py-8 text-4xl text-center hover:cursor-pointer hover:trasform hover:-translate-y-2 active:translate-y-0 bg-orange-500 hover:bg-orange-600"
+      >
+        AC
+      </button>
+      <button
+        class="px-7 py-8 text-4xl text-center hover:cursor-pointer hover:trasform hover:-translate-y-2 active:translate-y-0 bg-gray-300 hover:bg-gray-400"
+      >
+        0
+      </button>
+      <button
+        class="px-7 py-8 text-4xl text-center hover:cursor-pointer hover:trasform hover:-translate-y-2 active:translate-y-0 bg-orange-500 hover:bg-orange-600"
+      >
+        =
+      </button>
+      <button
+        class="px-7 py-8 text-4xl text-center hover:cursor-pointer hover:trasform hover:-translate-y-2 active:translate-y-0 bg-orange-500 hover:bg-orange-600"
+      >
+        +
+      </button>
+    </div>
+  </div>
+</div>
+`;
