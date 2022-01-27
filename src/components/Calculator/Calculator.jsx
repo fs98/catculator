@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { useEffect } from "react/cjs/react.development";
 import Button from "../Button/Button";
 
@@ -51,7 +51,6 @@ const Calculator = () => {
   }, [totalResult]);
 
   const resultHandler = () => {
-    // if (valueA === null || valueB === null || action === null) return;
 
     if ([valueA, valueB, action].includes(null)) return;
 
@@ -92,24 +91,6 @@ const Calculator = () => {
         setAction(value.title);
       }
     }
-
-    // if (value.type === "number") {
-    //   if (valueA === null || action === null) {
-    //     setValueA(Number(value.title));
-    //   } else {
-    //     setValueB(Number(value.title));
-    //   }
-    // } else {
-    //   if (value.title === "=") {
-    //     resultHandler();
-    //   } else if (value.title === "AC") {
-    //     setValueA(null);
-    //     setValueB(null);
-    //     setAction(null);
-    //   } else {
-    //     setAction(value.title);
-    //   }
-    // }
   };
 
   return (
