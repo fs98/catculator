@@ -7,7 +7,7 @@ const Header = () => (
         href="/"
         className="py-3 flex items-center content-start text-gray-500 hover:opacity-75"
       >
-        &nbsp; Catculator by Fata
+        Catculator by Fata
       </a>
 
       <ul className="flex items-center space-x-2">
