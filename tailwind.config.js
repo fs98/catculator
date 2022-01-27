@@ -3,7 +3,11 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'black-cat': "url('/src/img/cat.png')"
+      }
+    },
   },
   plugins: [],
 }
