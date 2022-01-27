@@ -28,12 +28,6 @@ const Calculator = () => {
   const [currentValue, setCurrentValue] = useState(0);
 
   useEffect(() => {
-    console.log("valueA", valueA);
-    console.log("valueB", valueB);
-    console.log("action", action);
-  }, [action, valueA, valueB]);
-
-  useEffect(() => {
     if (valueA === "") {
       setCurrentValue(0);
     } else if (valueB === "") {
