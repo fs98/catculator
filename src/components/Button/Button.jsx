@@ -5,7 +5,7 @@ const Button = ({ type, onClick, children }) => {
       : "bg-gray-300 hover:bg-gray-400";
 
   return (
-    <button onClick={onClick}
+    <button type="button" onClick={onClick}
       className={`px-7 py-8 text-4xl text-center hover:cursor-pointer hover:trasform hover:-translate-y-2 active:translate-y-0 ${className}`}
     >
       {children}

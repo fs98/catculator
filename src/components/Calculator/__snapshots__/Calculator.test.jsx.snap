@@ -15,81 +15,97 @@ exports[`render calculator 1`] = `
     >
       <button
         class="px-7 py-8 text-4xl text-center hover:cursor-pointer hover:trasform hover:-translate-y-2 active:translate-y-0 bg-gray-300 hover:bg-gray-400"
+        type="button"
       >
         7
       </button>
       <button
         class="px-7 py-8 text-4xl text-center hover:cursor-pointer hover:trasform hover:-translate-y-2 active:translate-y-0 bg-gray-300 hover:bg-gray-400"
+        type="button"
       >
         8
       </button>
       <button
         class="px-7 py-8 text-4xl text-center hover:cursor-pointer hover:trasform hover:-translate-y-2 active:translate-y-0 bg-gray-300 hover:bg-gray-400"
+        type="button"
       >
         9
       </button>
       <button
         class="px-7 py-8 text-4xl text-center hover:cursor-pointer hover:trasform hover:-translate-y-2 active:translate-y-0 bg-orange-500 hover:bg-orange-600"
+        type="button"
       >
         /
       </button>
       <button
         class="px-7 py-8 text-4xl text-center hover:cursor-pointer hover:trasform hover:-translate-y-2 active:translate-y-0 bg-gray-300 hover:bg-gray-400"
+        type="button"
       >
         4
       </button>
       <button
         class="px-7 py-8 text-4xl text-center hover:cursor-pointer hover:trasform hover:-translate-y-2 active:translate-y-0 bg-gray-300 hover:bg-gray-400"
+        type="button"
       >
         5
       </button>
       <button
         class="px-7 py-8 text-4xl text-center hover:cursor-pointer hover:trasform hover:-translate-y-2 active:translate-y-0 bg-gray-300 hover:bg-gray-400"
+        type="button"
       >
         6
       </button>
       <button
         class="px-7 py-8 text-4xl text-center hover:cursor-pointer hover:trasform hover:-translate-y-2 active:translate-y-0 bg-orange-500 hover:bg-orange-600"
+        type="button"
       >
         x
       </button>
       <button
         class="px-7 py-8 text-4xl text-center hover:cursor-pointer hover:trasform hover:-translate-y-2 active:translate-y-0 bg-gray-300 hover:bg-gray-400"
+        type="button"
       >
         1
       </button>
       <button
         class="px-7 py-8 text-4xl text-center hover:cursor-pointer hover:trasform hover:-translate-y-2 active:translate-y-0 bg-gray-300 hover:bg-gray-400"
+        type="button"
       >
         2
       </button>
       <button
         class="px-7 py-8 text-4xl text-center hover:cursor-pointer hover:trasform hover:-translate-y-2 active:translate-y-0 bg-gray-300 hover:bg-gray-400"
+        type="button"
       >
         3
       </button>
       <button
         class="px-7 py-8 text-4xl text-center hover:cursor-pointer hover:trasform hover:-translate-y-2 active:translate-y-0 bg-orange-500 hover:bg-orange-600"
+        type="button"
       >
         -
       </button>
       <button
         class="px-7 py-8 text-4xl text-center hover:cursor-pointer hover:trasform hover:-translate-y-2 active:translate-y-0 bg-orange-500 hover:bg-orange-600"
+        type="button"
       >
         AC
       </button>
       <button
         class="px-7 py-8 text-4xl text-center hover:cursor-pointer hover:trasform hover:-translate-y-2 active:translate-y-0 bg-gray-300 hover:bg-gray-400"
+        type="button"
       >
         0
       </button>
       <button
         class="px-7 py-8 text-4xl text-center hover:cursor-pointer hover:trasform hover:-translate-y-2 active:translate-y-0 bg-orange-500 hover:bg-orange-600"
+        type="button"
       >
         =
       </button>
       <button
         class="px-7 py-8 text-4xl text-center hover:cursor-pointer hover:trasform hover:-translate-y-2 active:translate-y-0 bg-orange-500 hover:bg-orange-600"
+        type="button"
       >
         +
       </button>
