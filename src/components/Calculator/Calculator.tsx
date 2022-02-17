@@ -117,6 +117,9 @@ export const Calculator = (): JSX.Element => {
         value.title === "+" ||
         value.title === "-"
       ) {
+        if (currentValue === 0) {
+          setValueA(0);
+        }
         setAction(value.title);
       }
     }
