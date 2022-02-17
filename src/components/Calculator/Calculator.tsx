@@ -111,16 +111,11 @@ export const Calculator = (): JSX.Element => {
         setValueB(undefined);
         setAction(undefined);
         setTotalResult(0);
-      } else if (
-        value.title === "/" ||
-        value.title === "x" ||
-        value.title === "+" ||
-        value.title === "-"
-      ) {
+      } else if (["+", "-", "/", "x"].includes(value.title.toString())) {
         if (currentValue === 0) {
           setValueA(0);
         }
-        setAction(value.title);
+        setAction(value.title as ActionProps);
       }
     }
   };
