@@ -8,7 +8,7 @@ const onClick = jest.fn();
 
 test("renders the button", () => {
   render(
-    <Button type="action" onClick={onClick}>
+    <Button type="number" onClick={onClick}>
       {buttonText}
     </Button>
   );
