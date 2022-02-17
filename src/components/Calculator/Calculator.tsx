@@ -2,56 +2,45 @@ import { useState, useEffect } from "react";
 import { Button } from "../Button/Button";
 
 export type ActionProps = "/" | "x" | "+" | "-" | "AC" | "=";
-export type NumberList =
-  | "0"
-  | "1"
-  | "2"
-  | "3"
-  | "4"
-  | "5"
-  | "6"
-  | "7"
-  | "8"
-  | "9";
 export type ButtonType = "number" | "action";
 export type ButtonListProps = {
-  title: ActionProps | NumberList;
+  title: ActionProps | number;
   type: ButtonType;
 };
 
 const buttonsList: ButtonListProps[] = [
-  { title: "7", type: "number" },
-  { title: "8", type: "number" },
-  { title: "9", type: "number" },
+  { title: 7, type: "number" },
+  { title: 8, type: "number" },
+  { title: 9, type: "number" },
   { title: "/", type: "action" },
-  { title: "4", type: "number" },
-  { title: "5", type: "number" },
-  { title: "6", type: "number" },
+  { title: 4, type: "number" },
+  { title: 5, type: "number" },
+  { title: 6, type: "number" },
   { title: "x", type: "action" },
-  { title: "1", type: "number" },
-  { title: "2", type: "number" },
-  { title: "3", type: "number" },
+  { title: 1, type: "number" },
+  { title: 2, type: "number" },
+  { title: 3, type: "number" },
   { title: "-", type: "action" },
   { title: "AC", type: "action" },
-  { title: "0", type: "number" },
+  { title: 0, type: "number" },
   { title: "=", type: "action" },
   { title: "+", type: "action" },
 ];
 
 export const Calculator = (): JSX.Element => {
-  const [valueA, setValueA] = useState("");
-  const [valueB, setValueB] = useState("");
+  const [valueA, setValueA] = useState<number>();
+  const [valueB, setValueB] = useState<number>();
   const [action, setAction] = useState<ActionProps>();
   const [totalResult, setTotalResult] = useState<number>();
   const [currentValue, setCurrentValue] = useState<number>(0);
 
   useEffect(() => {
-    if (valueA === "") {
+    if (valueA === undefined) {
       setCurrentValue(0);
-    } else if (valueB === "") {
-      setCurrentValue(parseInt(valueA));
+    } else if (valueB === undefined) {
+      setCurrentValue(valueA);
     } else {
-      setCurrentValue(parseInt(valueB));
+      setCurrentValue(valueB);
     }
   }, [valueA, valueB]);
 
@@ -62,7 +51,7 @@ export const Calculator = (): JSX.Element => {
   }, [totalResult]);
 
   const resultHandler = () => {
-    if (valueA === "" || valueB === "" || action === undefined) return;
+    if ([valueA, valueB, action].includes(undefined)) return;
 
     // We never reseted the A and B values so when we choose second action it always adds up to B string value, and A value stays the same. This way, after choosing action "=" the total result becomes A, and B is empty.
 
@@ -72,42 +61,54 @@ export const Calculator = (): JSX.Element => {
       case "/":
         result = Number(valueA) / Number(valueB);
         setTotalResult(result);
-        setValueA(result.toString());
+        setValueA(result);
         break;
       case "x":
         result = Number(valueA) * Number(valueB);
         setTotalResult(result);
-        setValueA(result.toString());
+        setValueA(result);
         break;
       case "+":
         result = Number(valueA) + Number(valueB);
         setTotalResult(result);
-        setValueA(result.toString());
+        setValueA(result);
         break;
       case "-":
         result = Number(valueA) - Number(valueB);
         setTotalResult(result);
-        setValueA(result.toString());
+        setValueA(result);
         break;
       default:
         setTotalResult(0);
     }
-    setValueB("");
+    setValueB(undefined);
   };
 
   const onButtonClickHandler = (value: ButtonListProps) => {
     if (value.type === "number") {
       if (action === undefined) {
-        setValueA((prev) => prev.toString() + value.title.toString());
+        setValueA((prev) =>
+          Number(
+            !!prev
+              ? prev.toString() + value.title.toString()
+              : value.title.toString()
+          )
+        );
       } else {
-        setValueB((prev) => prev.toString() + value.title.toString());
+        setValueB((prev) =>
+          Number(
+            !!prev
+              ? prev.toString() + value.title.toString()
+              : value.title.toString()
+          )
+        );
       }
     } else {
       if (value.title === "=") {
         resultHandler();
       } else if (value.title === "AC") {
-        setValueA("");
-        setValueB("");
+        setValueA(undefined);
+        setValueB(undefined);
         setAction(undefined);
         setTotalResult(0);
       } else if (
