@@ -1,6 +1,6 @@
 import { TiSocialGithub } from "react-icons/ti";
 
-const Header = () => (
+export const Header = (): JSX.Element => (
   <header>
     <nav className="h-12 container mx-auto flex justify-between">
       <a

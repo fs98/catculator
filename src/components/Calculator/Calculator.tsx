@@ -1,7 +1,25 @@
 import { useState, useEffect } from "react";
-import Button from "../Button/Button";
+import { Button } from "../Button/Button";
 
-const buttonsList = [
+export type ActionProps = "/" | "x" | "+" | "-" | "AC" | "=";
+export type ButtonType = "number" | "action";
+export type ButtonListProps = {
+  title:
+    | ActionProps
+    | "0"
+    | "1"
+    | "2"
+    | "3"
+    | "4"
+    | "5"
+    | "6"
+    | "7"
+    | "8"
+    | "9";
+  type: ButtonType;
+};
+
+const buttonsList: ButtonListProps[] = [
   { title: "7", type: "number" },
   { title: "8", type: "number" },
   { title: "9", type: "number" },
@@ -20,32 +38,31 @@ const buttonsList = [
   { title: "+", type: "action" },
 ];
 
-const Calculator = () => {
+export const Calculator = (): JSX.Element => {
   const [valueA, setValueA] = useState("");
   const [valueB, setValueB] = useState("");
-  const [action, setAction] = useState(null);
-  const [totalResult, setTotalResult] = useState(null);
-  const [currentValue, setCurrentValue] = useState(0);
+  const [action, setAction] = useState<ActionProps>();
+  const [totalResult, setTotalResult] = useState<number>();
+  const [currentValue, setCurrentValue] = useState<number>(0);
 
   useEffect(() => {
     if (valueA === "") {
       setCurrentValue(0);
     } else if (valueB === "") {
-      setCurrentValue(valueA);
+      setCurrentValue(parseInt(valueA));
     } else {
-      setCurrentValue(valueB);
+      setCurrentValue(parseInt(valueB));
     }
   }, [valueA, valueB]);
 
   useEffect(() => {
-    if (totalResult !== null) {
+    if (typeof totalResult === "number") {
       setCurrentValue(totalResult);
     }
   }, [totalResult]);
 
   const resultHandler = () => {
-
-    if ([valueA, valueB, action].includes(null)) return;
+    if (valueA === "" || valueB === "" || action === undefined) return;
 
     switch (action) {
       case "/":
@@ -61,13 +78,13 @@ const Calculator = () => {
         setTotalResult(Number(valueA) - Number(valueB));
         break;
       default:
-        return 0;
+        setTotalResult(0);
     }
   };
 
-  const onButtonClickHandler = (value) => {
+  const onButtonClickHandler = (value: ButtonListProps) => {
     if (value.type === "number") {
-      if (action === null) {
+      if (action === undefined) {
         setValueA((prev) => prev.toString() + value.title.toString());
       } else {
         setValueB((prev) => prev.toString() + value.title.toString());
@@ -78,9 +95,9 @@ const Calculator = () => {
       } else if (value.title === "AC") {
         setValueA("");
         setValueB("");
-        setAction(null);
-        setTotalResult(null);
-      } else {
+        setAction(undefined);
+        setTotalResult(0);
+      } else if (value.title === ("/" || "x" || "+" || "-")) {
         setAction(value.title);
       }
     }

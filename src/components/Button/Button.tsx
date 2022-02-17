@@ -1,11 +1,21 @@
-const Button = ({ type, onClick, children }) => {
+import React, { FC } from "react";
+import { ButtonType } from "../Calculator/Calculator";
+
+export type ButtonProps = {
+  type: ButtonType;
+  onClick: () => void;
+};
+
+export const Button: FC<ButtonProps> = ({ type, onClick, children }) => {
   const className =
     type === "action"
       ? "bg-orange-500 hover:bg-orange-600"
       : "bg-gray-300 hover:bg-gray-400";
 
   return (
-    <button type="button" onClick={onClick}
+    <button
+      type="button"
+      onClick={onClick}
       className={`px-7 py-8 text-4xl text-center hover:cursor-pointer hover:trasform hover:-translate-y-2 active:translate-y-0 ${className}`}
     >
       {children}
