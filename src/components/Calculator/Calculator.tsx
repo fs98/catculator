@@ -2,20 +2,20 @@ import { useState, useEffect } from "react";
 import { Button } from "../Button/Button";
 
 export type ActionProps = "/" | "x" | "+" | "-" | "AC" | "=";
+export type NumberList =
+  | "0"
+  | "1"
+  | "2"
+  | "3"
+  | "4"
+  | "5"
+  | "6"
+  | "7"
+  | "8"
+  | "9";
 export type ButtonType = "number" | "action";
 export type ButtonListProps = {
-  title:
-    | ActionProps
-    | "0"
-    | "1"
-    | "2"
-    | "3"
-    | "4"
-    | "5"
-    | "6"
-    | "7"
-    | "8"
-    | "9";
+  title: ActionProps | NumberList;
   type: ButtonType;
 };
 
@@ -56,7 +56,7 @@ export const Calculator = (): JSX.Element => {
   }, [valueA, valueB]);
 
   useEffect(() => {
-    if (typeof totalResult === "number") {
+    if (totalResult !== undefined) {
       setCurrentValue(totalResult);
     }
   }, [totalResult]);
@@ -64,22 +64,35 @@ export const Calculator = (): JSX.Element => {
   const resultHandler = () => {
     if (valueA === "" || valueB === "" || action === undefined) return;
 
+    // We never reseted the A and B values so when we choose second action it always adds up to B string value, and A value stays the same. This way, after choosing action "=" the total result becomes A, and B is empty.
+
+    let result = 0;
+
     switch (action) {
       case "/":
-        setTotalResult(Number(valueA) / Number(valueB));
+        result = Number(valueA) / Number(valueB);
+        setTotalResult(result);
+        setValueA(result.toString());
         break;
       case "x":
-        setTotalResult(Number(valueA) * Number(valueB));
+        result = Number(valueA) * Number(valueB);
+        setTotalResult(result);
+        setValueA(result.toString());
         break;
       case "+":
-        setTotalResult(Number(valueA) + Number(valueB));
+        result = Number(valueA) + Number(valueB);
+        setTotalResult(result);
+        setValueA(result.toString());
         break;
       case "-":
-        setTotalResult(Number(valueA) - Number(valueB));
+        result = Number(valueA) - Number(valueB);
+        setTotalResult(result);
+        setValueA(result.toString());
         break;
       default:
         setTotalResult(0);
     }
+    setValueB("");
   };
 
   const onButtonClickHandler = (value: ButtonListProps) => {
@@ -97,7 +110,12 @@ export const Calculator = (): JSX.Element => {
         setValueB("");
         setAction(undefined);
         setTotalResult(0);
-      } else if (value.title === ("/" || "x" || "+" || "-")) {
+      } else if (
+        value.title === "/" ||
+        value.title === "x" ||
+        value.title === "+" ||
+        value.title === "-"
+      ) {
         setAction(value.title);
       }
     }
