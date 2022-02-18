@@ -113,6 +113,9 @@ export const Calculator = (): JSX.Element => {
         if (currentValue === 0) {
           setValueA(0);
         }
+        if (valueB !== undefined) {
+          resultHandler();
+        }
         setAction(value.title as ActionProps);
       }
     }
