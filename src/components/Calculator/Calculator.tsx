@@ -50,34 +50,32 @@ export const Calculator = (): JSX.Element => {
     }
   }, [totalResult]);
 
+  const resultHandlerSwitch = (result: number) => {
+    setTotalResult(result);
+    setValueA(result);
+  };
+
   const resultHandler = () => {
-    if ([valueA, valueB, action].includes(undefined)) return;
+    // if ([valueA, valueB, action].includes(undefined)) return;
+    if (valueA === undefined || valueB === undefined || action === undefined)
+      return;
 
     // We never reseted the A and B values so when we choose second action it always adds up to B string value, and A value stays the same. This way, after choosing action "=" the total result becomes A, and B is empty.
 
-    let result = 0;
-
     switch (action) {
       case "/":
-        result = Number(valueA) / Number(valueB);
-        setTotalResult(result);
-        setValueA(result);
+        resultHandlerSwitch(valueA / valueB);
         break;
       case "x":
-        result = Number(valueA) * Number(valueB);
-        setTotalResult(result);
-        setValueA(result);
+        resultHandlerSwitch(valueA * valueB);
         break;
       case "+":
-        result = Number(valueA) + Number(valueB);
-        setTotalResult(result);
-        setValueA(result);
+        resultHandlerSwitch(valueA + valueB);
         break;
       case "-":
-        result = Number(valueA) - Number(valueB);
-        setTotalResult(result);
-        setValueA(result);
+        resultHandlerSwitch(valueA - valueB);
         break;
+      case undefined:
       default:
         setTotalResult(0);
     }
