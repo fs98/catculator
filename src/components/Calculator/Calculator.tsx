@@ -119,8 +119,8 @@ export const Calculator = (): JSX.Element => {
   };
 
   return (
-    <div className="calculator container mx-auto md:w-1/2">
-      <h1 className="p-8 text-right text-6xl">{currentValue}</h1>
+    <div className="calculator container bg-black bg-opacity-40 rounded-md p-4 mx-auto md:w-1/2">
+      <h1 className="p-8 text-right text-white text-6xl">{currentValue}</h1>
 
       <div className="grid grid-cols-4 gap-2">
         {buttonsList.map((btn, index) => {
