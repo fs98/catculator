@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/catculator/static/css/main.9742646e.css",
-    "main.js": "/catculator/static/js/main.eee3b464.js",
+    "main.css": "/catculator/static/css/main.226cfffe.css",
+    "main.js": "/catculator/static/js/main.b064e6cd.js",
     "static/media/cat.png": "/catculator/static/media/cat.c0d15e39a146286f6f65.png",
     "index.html": "/catculator/index.html",
-    "main.9742646e.css.map": "/catculator/static/css/main.9742646e.css.map",
-    "main.eee3b464.js.map": "/catculator/static/js/main.eee3b464.js.map"
+    "main.226cfffe.css.map": "/catculator/static/css/main.226cfffe.css.map",
+    "main.b064e6cd.js.map": "/catculator/static/js/main.b064e6cd.js.map"
   },
   "entrypoints": [
-    "static/css/main.9742646e.css",
-    "static/js/main.eee3b464.js"
+    "static/css/main.226cfffe.css",
+    "static/js/main.b064e6cd.js"
   ]
 }
